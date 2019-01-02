@@ -7,7 +7,7 @@ Script will sort your photo arhive. New directory structure will be created:
 <year>/<Month number><month name>/.<file extention>
 ```
 Example:
-d:\готово*\2018\10 - October\.mp4\29_20181028_153733.mp4*
+d:\готово*\2018\10 - October\\.mp4\29_20181028_153733.mp4*
 
 ## video-encode.py
 Will walk through dir and all subfolders and compress all video files found to HEVC (best codec corrently. HW decoding support by all modern phones and CPU). 
