@@ -4,7 +4,7 @@ from shutil import copy2
 import subprocess
 import logging
 
-SRC_FOLDER = 'd:/готово/_private/Видео/'
+SRC_FOLDER = 'd:/готово/'
 PATH_TO_FFMPEG = 'c:/Users/S/Downloads/ffmpeg-4.1-win64-static/bin/'
 VIDEO_EXT = ['.avi', '.mpeg', '.mpg', '.mov', '.vob', '.mp4']
 #ALLOWED_CODECS = ['h264', 'hevc']
@@ -29,12 +29,10 @@ def main():
             filename, file_extension = os.path.splitext(f)
             if file_extension.lower() in VIDEO_EXT:
                 path_to_file = os.path.join(SRC_FOLDER, dirpath, f)
-                print(path_to_file)
                 #check codec. If not h264/265 - proceed
                 if not check_codec(path_to_file):
                     try:
                         new_file = convert(path_to_file)
-                        print(new_file)
                         if os.path.getsize(new_file) > os.path.getsize(path_to_file):
                             logger.warning('New file is bigger then original ' + path_to_file + '. Keeping both')
                         else:
@@ -46,7 +44,6 @@ def main():
 
 def check_codec(file):
     output = subprocess.run(PATH_TO_FFMPEG + 'ffprobe.exe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "' + file + '"', capture_output=True)
-    print(str(output.stdout))
     if any(x in str(output.stdout) for x in ALLOWED_CODECS):
 #        logger.info('File ' + file + ' is already encoded with h.264/265')
         return True
@@ -66,7 +63,6 @@ def convert(file):
         + ' -c:a ' + audio_codec_settings 
         + '"' + new_file + '"'
         + " -hide_banner -loglevel error -n")
-    print(output.stdout)
 
     #preserve metadata
     mtime = os.path.getmtime(file)
