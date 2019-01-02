@@ -4,23 +4,13 @@ from shutil import copy2
 
 SRC_FOLDER = 'd:\\_разобрать\\'
 DST_FOLDER = 'd:\\готово\\'
+EXTENTIONS = ['.avi', '.mpeg', '.mpg', '.mov', '.vob', '.mp4', '.jpeg', '.jpg', '.cr2', '.nef', '.raw']
 
 def main():
     for dirpath, dirnames, filenames in os.walk(SRC_FOLDER):
         for f in filenames:
             filename, file_extension = os.path.splitext(f)
-            if file_extension.lower() == '.avi' or \
-               file_extension.lower() == '.mpeg' or \
-               file_extension.lower() == '.mpg' or \
-               file_extension.lower() == '.mov' or \
-               file_extension.lower() == '.vob' or \
-               file_extension.lower() == '.jpeg' or \
-               file_extension.lower() == '.jpg' or \
-               file_extension.lower() == '.raw' or \
-               file_extension.lower() == '.mp4' or \
-               file_extension.lower() == '.cr2' or \
-               file_extension.lower() == '.nef':
-
+            if file_extension.lower() in EXTENTIONS:
                 file_modified_time = datetime.fromtimestamp(os.path.getmtime(os.path.join(SRC_FOLDER, dirpath, f)))
                 new_path = datetime.strftime(file_modified_time, '%Y/%m - %B/') + file_extension.lower() + "/"
                 day = datetime.strftime(file_modified_time, '%d')
