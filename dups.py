@@ -7,7 +7,7 @@ import logging
 
 # source: https://stackoverflow.com/questions/748675/finding-duplicate-files-and-removing-them
 
-DEFAULT_PATH = 'C:\\Temp\\_lab\\dups\\'
+DEFAULT_PATH = 'D:\\готово\\'
 REMOVE_DUPS = True #if true newer file will be deleted
 
 logFile = 'C:/Temp/dups.log'
@@ -128,10 +128,16 @@ def remove_duplicates(dups):
             continue
         if mtime0 < mtime1:
             logger.info('Keep: {0}, Remove: {1}'.format(dup[0], dup[1]))
-            os.remove(dup[1])
+            try:
+            	os.remove(dup[1])
+            except:
+            	logger.error('Access denied to ' + dup[1])
         else:
             logger.info('Keep: {1}, Remove: {0}'.format(dup[0], dup[1]))
-            os.remove(dup[0])
+            try:
+            	os.remove(dup[0])
+            except:
+            	logger.error('Access denied to ' + dup[1])
 
 if __name__ == "__main__":
     main(sys.argv[1:])
