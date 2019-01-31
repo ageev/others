@@ -14,5 +14,10 @@ Will walk through dir and all subfolders and compress all video files found to H
 You can supress h.264 reencoding, if you like. H.264 is also good codec. Helps to compress old videos (like MOV or early MPEG) to save space. Some videous could be compressed without noticable quality drop 20x!
 You should install ffmpeg first!
 
-## dups.py
-will search for a duplicate and keep older file
+## dups.py 
+will search for a duplicate and keep only the older file. Initial script here https://stackoverflow.com/questions/748675/finding-duplicate-files-and-removing-them
+
+Check logs afterwards (cat c:\Temp\dups.log | grep ERROR)
+if you see this:
+```ERROR FileNotFound. Run dups again.```
+Run script again
