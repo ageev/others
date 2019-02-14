@@ -21,3 +21,7 @@ Check logs afterwards (cat c:\Temp\dups.log | grep ERROR)
 if you see this:
 ```ERROR FileNotFound. Run dups again.```
 Run script again
+
+## correct foto date
+will walk through folders and CHANGE file modified date to folder's date. 
+Idea is that you will sort photos using fotosort.py script, than manualy move some fotos and run this script to set correct date accroding to new path.
