@@ -25,3 +25,7 @@ Run script again
 ## correct foto date
 will walk through folders and CHANGE file modified date to folder's date. 
 Idea is that you will sort photos using fotosort.py script, than manualy move some fotos and run this script to set correct date accroding to new path.
+
+## get_user_info.py
+I was tired fighting with PowerShell so I built "Python-2-PowerShell adapter 2000!". It allows you to run powershell scripts from Python and parse the output. 
+This particular script allows you to get Domain/ITSM user's details based on First-Last user's name
