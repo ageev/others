@@ -1,6 +1,12 @@
 # Others
 My small collection of different usefull scripts
 
+## ASUS_router_web_bruteforcer.py
+Just lame script to bruteforce passwords for my home router
+
+## detect_portscans.py
+Was one of the tasks for the interview 
+
 ## fotosort.py
 Script will sort your photo arhive. New directory structure will be created:
 ```
