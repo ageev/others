@@ -22,8 +22,6 @@ log = ['192.168.42.2:1337 -> 216.58.195.238:22', '192.168.42.3:1337 -> 216.58.19
 
 def build_list(l):
     result = []
-    IP_log = []
-
     for _ in l:
         src_ip = _.split(":")[0]
         dst_port = _.split(":")[2]
