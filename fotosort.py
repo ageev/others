@@ -4,7 +4,7 @@ from shutil import copy2
 
 SRC_FOLDER = 'd:\\_разобрать\\'
 DST_FOLDER = 'd:\\готово\\'
-EXTENTIONS = ['.avi', '.mpeg', '.mpg', '.mov', '.vob', '.mp4', '.jpeg', '.jpg', '.cr2', '.nef', '.raw']
+EXTENTIONS = ['.avi', '.mpeg', '.mpg', '.mov', '.vob', '.mp4', '.jpeg', '.jpg', '.cr2', '.nef', '.raw', '.dng']
 
 def main():
     for dirpath, dirnames, filenames in os.walk(SRC_FOLDER):
