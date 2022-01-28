@@ -28,6 +28,14 @@ def main():
                 os.replace(old_file, new_file)
                 
 #                copy2(old_file, new_file) # dry run
+# Synology Photos stopped indexing dirs with dot (e.g. ".jpg"), so I used this function to rename ".jpg" -> "jpg"
+def rename_dir_no_dot():
+    for dirpath, dirnames, filenames in os.walk(SRC_FOLDER):
+        for d in dirnames:
+        	if d in EXTENTIONS:
+        		os.rename(os.path.join(SRC_FOLDER,dirpath,d), os.path.join(SRC_FOLDER,dirpath,d[1:]))
+        		print("[+] folder ", os.path.join(dirpath,d), " was renamed")
+
 
 if __name__ == "__main__":
     main()   
